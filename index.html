@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trivia</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+  <h1>Trivia Galáctica</h1>
+  <button onclick="window.location.href='juego.html'">Comenzar</button>
+  <button id="boton-instrucciones">Instrucciones</button>
+<div id="modal-instrucciones" class="modal oculto">
+  <div class="modal-contenido">
+    <h2>📜 Instrucciones</h2>
+    <p>1️⃣ Espera a que se lea la pregunta en voz alta.</p>
+    <p>2️⃣ Cuando termine la lectura, presiona <strong>1</strong> o <strong>2</strong> para indicar quién responderá.</p>
+    <p>3️⃣ El jugador seleccionado elige la respuesta correcta.</p>
+    <p>4️⃣ Se mostrará si la respuesta fue correcta o incorrecta.</p>
+    <p>5️⃣ Presiona "Continuar" para avanzar a la siguiente pregunta.</p>
+    <p>🏆 Al final, se mostrará quién ganó.</p>
+    <button id="cerrar-instrucciones">Cerrar</button>
+  </div>
+</div>
+<script>
+    document.getElementById('boton-instrucciones').addEventListener('click', function() {
+      document.getElementById('modal-instrucciones').classList.add('visible');
+    });
+  
+    document.getElementById('cerrar-instrucciones').addEventListener('click', function() {
+      document.getElementById('modal-instrucciones').classList.remove('visible');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* estilos.css */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../assets/fondo-espacial.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 10px #000;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  button {
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px white;
+  }
+  
+  /* Botón de instrucciones */
+#boton-instrucciones {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #boton-instrucciones:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px white;
+  }
+  
+  /* Estilos del modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .modal.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-contenido {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .modal-contenido h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-contenido p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .modal-contenido button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .modal-contenido button:hover {
+    background-color: #0056b3;
+  }
+  
