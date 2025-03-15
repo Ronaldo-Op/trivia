@@ -56,10 +56,6 @@ window.addEventListener('beforeunload', () => {
     window.speechSynthesis.cancel();
     lecturaActiva = false;
   });
-  
-  window.addEventListener('load', () => {
-    cargarPreguntas();
-  });
 
 // Función para mostrar pregunta y opciones (deshabilitadas inicialmente)
 function mostrarPregunta(indice) {
@@ -105,7 +101,7 @@ function detectarJugador(e) {
   if (lecturaActiva) return;
   if (e.key === '1' || e.key === '2') {
     jugadorActual = e.key;
-    mostrarMensajeJugador('Jugador ' + jugadorActual + ' va a responder');
+    mostrarMensajeJugador('Jugador ' + jugadorActual);
     habilitarOpciones();
     document.removeEventListener('keydown', detectarJugador);
   }
