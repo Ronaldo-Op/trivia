@@ -37,7 +37,7 @@ function togglePantallaCompleta() {
 function leerTexto(texto, callback) {
   const synth = window.speechSynthesis;
   const utterance = new SpeechSynthesisUtterance(texto);
-  utterance.lang = 'es-MX';
+  utterance.lang = 'en-US21';
   utterance.pitch = 1;
   utterance.rate = 1;
   utterance.volume = 1;
@@ -88,8 +88,8 @@ function mostrarPregunta(indice) {
   });
 
   // Armar texto completo a leer
-  let textoCompleto = preguntaActual.pregunta + '. Opciones: ';
-  textoCompleto += preguntaActual.opciones.map((op, i) => `Opción ${String.fromCharCode(65 + i)}: ${op}`).join('. ');
+  let textoCompleto = preguntaActual.pregunta + '. Choices: ';
+  textoCompleto += preguntaActual.opciones.map((op, i) => `Letter ${String.fromCharCode(65 + i)}: ${op}`).join('. ');
 
   leerTexto(textoCompleto, () => {
     document.addEventListener('keydown', detectarJugador);
@@ -101,7 +101,7 @@ function detectarJugador(e) {
   if (lecturaActiva) return;
   if (e.key === '1' || e.key === '2') {
     jugadorActual = e.key;
-    mostrarMensajeJugador('Jugador ' + jugadorActual);
+    mostrarMensajeJugador('Player ' + jugadorActual);
     habilitarOpciones();
     document.removeEventListener('keydown', detectarJugador);
   }
@@ -116,8 +116,8 @@ function habilitarOpciones() {
 function verificarRespuesta(opcionElegida, respuestaCorrecta) {
   const esCorrecta = opcionElegida === respuestaCorrecta;
   const mensaje = esCorrecta
-    ? '¡Correcto!'
-    : 'Incorrecto. La respuesta correcta era: ' + respuestaCorrecta;
+    ? '¡Correct!'
+    : 'Incorrect. the right answer was: "' + respuestaCorrecta + '"';
 
   if (esCorrecta) {
     sonidoCorrecto.play();
@@ -126,7 +126,7 @@ function verificarRespuesta(opcionElegida, respuestaCorrecta) {
     sonidoIncorrecto.play();
   }
 
-  mostrarMensajeResultado('Jugador ' + jugadorActual + ': ' + mensaje, esCorrecta);
+  mostrarMensajeResultado(mensaje, esCorrecta);
 
   const botones = document.querySelectorAll('#opciones button');
   botones.forEach(boton => boton.disabled = true);
@@ -175,11 +175,11 @@ function mostrarMensajeResultado(texto, correcto) {
 function mostrarGanador() {
     let mensajeFinal = '';
     if (puntajes['1'] > puntajes['2']) {
-      mensajeFinal = '🏆 ¡Jugador 1 gana con ' + puntajes['1'] + ' respuestas correctas!';
+      mensajeFinal = '🏆 ¡Player 1 wins with: ' + puntajes['1'] + ' right answers!';
     } else if (puntajes['2'] > puntajes['1']) {
-      mensajeFinal = '🏆 ¡Jugador 2 gana con ' + puntajes['2'] + ' respuestas correctas!';
+      mensajeFinal = '🏆 ¡Player 2 wins with: ' + puntajes['2'] + ' right answers!';
     } else {
-      mensajeFinal = '🤝 ¡Empate! Ambos jugadores tienen ' + puntajes['1'] + ' respuestas correctas';
+      mensajeFinal = '🤝 ¡Draw! both players got: ' + puntajes['1'] + ' right answers';
     }
   
     // Ocultar todo excepto el mensaje final
@@ -208,7 +208,7 @@ function mostrarGanador() {
   
     // Agregar botón de reinicio
     const botonReiniciar = document.createElement('button');
-    botonReiniciar.textContent = 'Reiniciar';
+    botonReiniciar.textContent = 'Reset';
     botonReiniciar.style.display = 'block';
     botonReiniciar.style.margin = '20px auto';
     botonReiniciar.style.padding = '10px 20px';
